@@ -1,14 +1,11 @@
-
+import Navbar from "./components/Navbar";
 
 function App() {
-
-
   return (
-    <>
-      <h1 className=' bg-slate-700'>front end</h1>
-        
-    </>
-  )
+    <div className=" h-screen bg-cover bg-[url('./assets/bg-img.jpg')] ">
+      <Navbar />
+    </div>
+  );
 }
 
-export default App
+export default App;
