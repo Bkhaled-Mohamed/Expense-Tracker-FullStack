@@ -1,60 +1,69 @@
 import { MdOutlineDashboardCustomize } from "react-icons/md";
-import { GiReceiveMoney, GiPayMoney } from "react-icons/gi";
+import { GiReceiveMoney, GiPayMoney, GiTakeMyMoney } from "react-icons/gi";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { TbLogout } from "react-icons/tb";
-// import rocket from "src/assets/rocket.svg";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  console.log("the location is: ", location.pathname);
   return (
-    <nav className=" bg-white w-64 h-screen   relative">
-      <div className="flex flex-row justify-center rounded-b-md pt-5 pb-5  text-black">
-        <img
-          className="w-20 h-20 rounded-full border-4 border-white"
-          src="src/assets/avatar.jpg"
-          alt="avatar"
-        />
-        <div className=" ml-2 pt-5">
-          <h1 className="text-xl">Mike</h1>
-          <h3 className=" text-xs">Your Money</h3>
-        </div>
+    <nav className=" bg-white bg-opacity-60 w-64 h-screen   relative">
+      <div className="flex flex-row justify-center rounded-b-md pt-5 pb-5 pl-3  ">
+        <h1 className="text-xl text-black flex flex-row relative ">
+          <span className=" absolute left-[-30px] top-1 scale-150 ">
+            {<GiTakeMyMoney />}
+          </span>
+          <span className="text-xl">MyExpense</span>
+        </h1>
       </div>
 
       <div className="w-[250px] m-auto flex flex-col p-8">
-        <a
-          href="#"
-          className="flex items-center   mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded"
+        <Link
+          to="/"
+          className={`flex items-center   mb-2   hover:bg-gray-900 hover:text-white p-2 px-6 rounded ${
+            location.pathname == "/" ? "bg-gray-900 text-white" : ""
+          }`}
         >
           <MdOutlineDashboardCustomize />
           <span className="ml-4">Dashboard</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded"
+        </Link>
+        <Link
+          to="/income"
+          className={`flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded ${
+            location.pathname == "/income" ? "bg-gray-900 text-white" : ""
+          }`}
         >
           <GiReceiveMoney />
           <span className="ml-4">Incomes</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded"
+        </Link>
+        <Link
+          to="/expense"
+          className={`flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded ${
+            location.pathname == "/expense" ? "bg-gray-900 text-white" : ""
+          }`}
         >
           <GiPayMoney />
           <span className="ml-4">Expenses</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded"
+        </Link>
+        <Link
+          to="/transactions"
+          className={`flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded ${
+            location.pathname == "/transactions" ? "bg-gray-900 text-white" : ""
+          }`}
         >
           <FaMoneyBillTransfer />
           <span className="ml-4">Transactions</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded"
+        </Link>
+        <Link
+          to="/logout"
+          className={`flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded ${
+            location.pathname == "/logout" ? "bg-gray-900 text-white" : ""
+          }`}
         >
           <TbLogout />
           <span className="ml-4">Sign out</span>
-        </a>
+        </Link>
       </div>
 
       <div className=" absolute bottom-5 w-full">
