@@ -19,7 +19,7 @@ const Dashboard = () => {
             alt="avatar"
           />
           <div className=" ml-4 ">
-            <h1 className=" text-md text-black">Jhon Smith</h1>
+            <h1 className=" text-lg text-black">Jhon Smith</h1>
           </div>
         </div>
       </div>

@@ -163,7 +163,7 @@ const Navbar = () => {
               Unlock all features and <br />
               get more facilities
             </p>
-            <button className="rounded-md py-2 px-5 text-sm font-medium bg-green-400">
+            <button className="rounded-md py-2 px-5 text-sm font-medium bg-green-400 hover:bg-green-600">
               Upgrade
             </button>
           </div>

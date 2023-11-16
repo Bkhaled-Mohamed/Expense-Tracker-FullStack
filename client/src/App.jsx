@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/dashboard/Dashboard";
-import Navbar from "./components/navbar/Navbar";
-import Transactions from "./components/transactions/Transactions";
-import Income from "./components/income/Income";
-import Expense from "./components/expense/Expense";
+import Dashboard from "./components/dashboard/Dashboard.jsx";
+import Navbar from "./components/navbar/Navbar.jsx";
+import Transactions from "./components/transactions/Transactions.jsx";
+import Income from "./components/income/Income.jsx";
+import Expense from "./components/expense/Expense.jsx";
 
 function App() {
   return (
