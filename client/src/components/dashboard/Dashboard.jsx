@@ -5,8 +5,11 @@ import { MdOutlineAddBox, MdLogout } from "react-icons/md";
 import { FiMinusSquare } from "react-icons/fi";
 import { GrTransaction } from "react-icons/gr";
 import { ImStatsDots } from "react-icons/im";
+import { useGlobalContext } from "../../context/globalContext";
 
 const Dashboard = () => {
+  const { totalIncome, totalExpenses, totalBalance } = useGlobalContext();
+
   return (
     <div className=" w-full bg-slate-100 h-full rounded-t-md pl-5 pr-5 ">
       {/* ------- profil & title start -------- */}
@@ -38,21 +41,20 @@ const Dashboard = () => {
                   Avalable Balance :{" "}
                   <span className="text-blue-600 text-xl font-semibold">
                     {" "}
-                    <br />
-                    $45.000.000
+                    <br />${totalBalance()}
                   </span>
                 </h1>
                 <div className="flex flex-col  text-lg mt-2 rounded-lg bg-slate-500">
                   <h1 className="p-2 ">
                     Total Income :{" "}
                     <span className="text-green-400 text-xl font-semibold">
-                      $15.000
+                      ${totalIncome()}
                     </span>
                   </h1>
                   <h1 className="p-2 ">
                     Total Expense :{" "}
                     <span className="text-red-700 text-xl font-semibold">
-                      $5.000
+                      ${totalExpenses()}
                     </span>
                   </h1>
                 </div>
