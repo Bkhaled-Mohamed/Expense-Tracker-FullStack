@@ -6,21 +6,30 @@ import { FiMinusSquare } from "react-icons/fi";
 import { GrTransaction } from "react-icons/gr";
 import { ImStatsDots } from "react-icons/im";
 import { useGlobalContext } from "../../context/globalContext";
+import { useEffect } from "react";
+import Chart from "../chart/Chart";
+import { Link, useNavigate } from "react-router-dom";
+import History from "../history/History";
+import { FaUserCircle } from "react-icons/fa";
 
 const Dashboard = () => {
-  const { totalIncome, totalExpenses, totalBalance } = useGlobalContext();
+  const { totalIncome, totalExpenses, totalBalance, getExpenses, getIncomes } =
+    useGlobalContext();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    getExpenses();
+    getIncomes();
+  }, []);
   return (
     <div className=" w-full bg-slate-100 h-full rounded-t-md pl-5 pr-5 ">
       {/* ------- profil & title start -------- */}
-      <div className="w-full h-[7%]  rounded-md flex flex-row justify-between px-4 my-2 items-center">
+      <div className="w-full h-[7%]  rounded-md flex flex-row justify-between px-4 my-0 items-center">
         <h1 className="text-black text-2xl font-semibold">My Dashboard</h1>
         <div className="flex flex-row items-center">
-          <img
-            className="w-10 h-10 rounded-full  border-white"
-            src="src/assets/avatar.jpg"
-            alt="avatar"
-          />
+          <div className="text-3xl rounded-full  border-white">
+            <FaUserCircle />
+          </div>
           <div className=" ml-4 ">
             <h1 className=" text-lg text-black">Jhon Smith</h1>
           </div>
@@ -71,28 +80,37 @@ const Dashboard = () => {
           </h1>
           <div className="h-full mt-2 text-center">
             <div className="w-full flex flex-row justify-around items-center">
-              <div className="flex flex-col justify-center items-center w-2/4 hover:bg-slate-400 cursor-pointer  py-2">
-                <div className="text-[68px] opacity-80">
+              <div
+                className="flex flex-col justify-center items-center w-2/4 hover:bg-slate-950 cursor-pointer hover:text-white py-2"
+                onClick={() => navigate("/income")}
+              >
+                <div className="text-[68px] ">
                   <MdOutlineAddBox />
                 </div>
                 <h1>Add Income</h1>
               </div>
-              <div className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-400  cursor-pointer py-2">
-                <div className="text-[65px] opacity-80">
+              <div
+                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950  cursor-pointer hover:text-white  py-2"
+                onClick={() => navigate("/expense")}
+              >
+                <div className="text-[65px] ">
                   <FiMinusSquare />
                 </div>
                 <h1>Add Expense</h1>
               </div>
             </div>
             <div className="w-full  flex flex-row justify-around mt-2 items-center">
-              <div className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-400 cursor-pointer  py-2">
-                <div className="text-[65px] opacity-80">
-                  <GrTransaction />
+              <div
+                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950 cursor-pointer hover:text-white py-2"
+                onClick={() => navigate("/transactions")}
+              >
+                <div className="text-[65px]  ">
+                  <GrTransaction className="" />
                 </div>
                 <h1>Transactions</h1>
               </div>
-              <div className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-400 cursor-pointer py-2">
-                <div className="text-[65px] opacity-80">
+              <div className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950 cursor-pointer hover:text-white py-2">
+                <div className="text-[65px]">
                   <MdLogout />
                 </div>
                 <h1>Log Out</h1>
@@ -109,11 +127,22 @@ const Dashboard = () => {
           <h1 className=" text-xl flex flex-row items-center ">
             <ImStatsDots /> <span className="ml-2">statistics</span>
           </h1>
+
+          <Chart />
         </div>
-        <div className=" w-[40%] bg-white bg-opacity-60 rounded-lg py-4 px-2 text-black">
+        <div className=" w-[40%] bg-white bg-opacity-60 rounded-lg py-4 px-2 text-black relative">
           <h1 className=" text-xl flex flex-row items-center ">
             <FaHistory /> <span className="ml-2">Recent History</span>
           </h1>
+          <div>
+            <Link
+              className=" absolute right-4 underline top-4 text-lg "
+              to={"/transactions"}
+            >
+              view all
+            </Link>
+            <History />
+          </div>
         </div>
       </div>
 

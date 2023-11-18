@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context/globalContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import IncomeItem from "./IncomeItem";
+import IncomeItem from "./ExpenseItem";
 
 const Expense = () => {
   const { addExpense, expenses, getExpenses, deleteExpense, totalExpenses } =
@@ -123,7 +123,7 @@ const Expense = () => {
         </form>
 
         <div className="h-[80%] w-[50%] mt-8 p-4">
-          <div className=" w-full ">
+          <div className=" w-full h-[80vh] overflow-scroll">
             <h1 className=" font-semibold">Recent Expenses:</h1>
             {expenses.map((income) => {
               const { _id, title, amount, date, category, description, type } =

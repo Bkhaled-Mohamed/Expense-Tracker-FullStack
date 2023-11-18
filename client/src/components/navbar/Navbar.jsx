@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-  console.log("the location is: ", location.pathname);
+
   return (
     <nav className=" bg-white bg-opacity-60 w-64 h-screen   relative">
       <div className="flex flex-row justify-center rounded-b-md pt-5 pb-5 pl-3  ">

@@ -16,7 +16,8 @@ function App() {
             <Route path="/income" Component={Income} />
             <Route path="/expense" Component={Expense} />
             <Route path="/transactions" Component={Transactions} />
-            <Route path="*" />
+            <Route path="/logout" />
+            <Route path="*" Component={Dashboard} />
           </Routes>
         </div>
       </BrowserRouter>

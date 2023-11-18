@@ -24,7 +24,7 @@ const Income = () => {
     setIncomesInputs({ ...incomesInputs, [propertyName]: e.target.value });
   };
 
-  const { title, amount, date: selectedDate, category, description } = incomes;
+  const { title, amount, category, description } = incomes;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -120,7 +120,7 @@ const Income = () => {
           </button>
         </form>
 
-        <div className="h-[80%] w-[50%] mt-8 p-4">
+        <div className="h-[80vh] overflow-scroll w-[50%] mt-8 p-4">
           <div className=" w-full ">
             <h1 className=" font-semibold">Recent Incomes:</h1>
             {incomes.map((income) => {
