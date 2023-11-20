@@ -23,10 +23,15 @@ const Home = () => {
           </Link>
         </div>
         <div className="flex flex-row justify-between items-center gap-4">
-          <h1 className=" cursor-pointer hover:text-[#a6624a]">Log In</h1>
-          <h1 className=" cursor-pointer border-2 border-[#a6624a] hover:bg-[#a6624a] py-2 px-4">
+          <Link to={"/login"} className=" cursor-pointer hover:text-[#a6624a]">
+            Log In
+          </Link>
+          <Link
+            to={"/register"}
+            className=" cursor-pointer border-2 border-[#a6624a] hover:bg-[#a6624a] py-2 px-4"
+          >
             Sign Up
-          </h1>
+          </Link>
         </div>
       </nav>
       <div className=" flex flex-row w-full items-center justify-center mt-14 px-10">
@@ -46,9 +51,12 @@ const Home = () => {
             >
               Let&apos;s Begin!
             </Link>
-            <button className=" underline-offset-2 underline hover:text-[#a6624a]">
+            <Link
+              to={"/login"}
+              className=" underline-offset-2 underline hover:text-[#a6624a]"
+            >
               or Log In
-            </button>
+            </Link>
           </div>
         </div>
         <div className="w-2/5 mx-auto  ">
