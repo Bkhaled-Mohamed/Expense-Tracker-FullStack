@@ -1,6 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import expenseImge from "../assets/expenseImage.jpg";
+import { useState } from "react";
+import { useGlobalContext } from "../context/globalContext";
 const Login = () => {
+  const { loginUser } = useGlobalContext();
+  const navigate = useNavigate();
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputs = (propertyName) => (e) => {
+    setLoginData({ ...loginData, [propertyName]: e.target.value });
+  };
+
+  const handlesumbit = async (e) => {
+    e.preventDefault();
+    setLoginData(loginData);
+    try {
+      await loginUser(loginData);
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className=" bg-gray-100 h-screen w-screen absolute top-0 left-0 text-black  flex flex-row justify-center items-center ">
       <div className="w-2/4 h-[70%] bg-slate-100 flex flex-row   overflow-hidden rounded-md shadow-sm shadow-slate-500">
@@ -20,7 +45,10 @@ const Login = () => {
             <h1 className="text-4xl font-semibold">Login</h1>
             <p className=" text-slate-800">Please Log in to continue.</p>
           </div>
-          <form className="flex flex-col w-full px-6 gap-y-2 ">
+          <form
+            onSubmit={handlesumbit}
+            className="flex flex-col w-full px-6 gap-y-2 "
+          >
             <label
               htmlFor="email"
               className="flex flex-col text-lg text-slate-800 "
@@ -31,6 +59,8 @@ const Login = () => {
                 autoComplete="new-password"
                 type="email"
                 name="email"
+                onChange={handleInputs("email")}
+                value={loginData.email}
                 placeholder="demo account: mike@gmail.com"
                 className=" w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
@@ -44,6 +74,8 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
+                onChange={handleInputs("password")}
+                value={loginData.password}
                 placeholder="demo account: mike123"
                 className="w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />

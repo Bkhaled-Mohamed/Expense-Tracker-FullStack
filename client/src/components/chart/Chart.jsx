@@ -30,10 +30,11 @@ function Chart() {
   const { incomes, expenses } = useGlobalContext();
 
   const data = {
-    labels: incomes.map((inc) => {
+    labels: expenses.map((inc) => {
       const { date } = inc;
       return moment(date).format("DD/MM/YYYY");
     }),
+
     datasets: [
       {
         label: "Income",

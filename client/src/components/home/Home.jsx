@@ -8,6 +8,8 @@ import Nike from "../../assets/logos/Nike.svg";
 import Perspective from "../../assets/logos/Perspective.svg";
 
 const Home = () => {
+  const userName = localStorage.getItem("user") || null;
+
   return (
     <div className=" bg-gray-900 h-screen w-screen absolute top-0 left-0 text-white ">
       <nav className="flex flex-row justify-between items-center px-20 w-full h-10 mt-8">
@@ -23,7 +25,10 @@ const Home = () => {
           </Link>
         </div>
         <div className="flex flex-row justify-between items-center gap-4">
-          <Link to={"/login"} className=" cursor-pointer hover:text-[#a6624a]">
+          <Link
+            to={userName ? "/dashboard" : "/login"}
+            className=" cursor-pointer hover:text-[#a6624a]"
+          >
             Log In
           </Link>
           <Link
@@ -46,13 +51,13 @@ const Home = () => {
           </p>
           <div className="mt-8 space-x-4">
             <Link
-              to={"/dashboard"}
+              to={"/register"}
               className="cursor-pointer border-2 border-[#a6624a] py-2 px-4 hover:bg-[#a6624a]"
             >
               Let&apos;s Begin!
             </Link>
             <Link
-              to={"/login"}
+              to={userName ? "/dashboard" : "/login"}
               className=" underline-offset-2 underline hover:text-[#a6624a]"
             >
               or Log In

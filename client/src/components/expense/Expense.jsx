@@ -24,7 +24,7 @@ const Expense = () => {
     setIncomesInputs({ ...incomesInputs, [propertyName]: e.target.value });
   };
 
-  const { title, amount, date: selectedDate, category, description } = expenses;
+  const { title, amount, category, description } = expenses;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,9 +37,7 @@ const Expense = () => {
         <h1 className="text-black text-2xl font-semibold ">My Expenses</h1>
         <h2 className="w-[80%] text-center text-lg bg-slate-900 text-white py-2 px-4 rounded-md flex items-center justify-center">
           Total Expense:{" "}
-          <span className="text-green-700 text-xl ml-4">
-            ${totalExpenses()}
-          </span>
+          <span className="text-red-700 text-xl ml-4">${totalExpenses()}</span>
         </h2>
       </div>
 
@@ -49,9 +47,10 @@ const Expense = () => {
             Enter Expense title:
             <input
               className="py-2 px-4 border-gray-700 border-2 rounded-md text-black"
-              placeholder="Salary"
+              placeholder="cat food"
               type="text"
               name="title"
+              autoComplete="new-password"
               value={title}
               onChange={handleInputs("title")}
             />
@@ -62,6 +61,7 @@ const Expense = () => {
               className="py-2 px-4 border-gray-700 border-2 rounded-md text-black"
               placeholder="$30.000"
               type="number"
+              autoComplete="new-password"
               name="amount"
               value={amount}
               onChange={handleInputs("amount")}
@@ -73,6 +73,7 @@ const Expense = () => {
             <DatePicker
               className="border-2 border-black rounded-md p-2 ml-2 py-2 px-4  cursor-pointer"
               id="date"
+              autoComplete="new-password"
               placeholderText="pick a date"
               selected={incomesInputs.date}
               dateFormat="dd/MM/yyyy"
@@ -94,10 +95,15 @@ const Expense = () => {
               <option value="" disabled selected>
                 Select an Option
               </option>
-              <option value="work">Work</option>
-              <option value="freelancing">Freelancing</option>
-              <option value="family">Family</option>
-              <option value="dono">Dono</option>
+              <option value="food">food</option>
+              <option value="transportation">transportation</option>
+              <option value="entertainment">entertainment</option>
+              <option value="bils">bils</option>
+              <option value="cell phone">cell phone</option>
+              <option value="clothing and personal upkeep">
+                clothing and personal upkeep
+              </option>
+              <option value="funds">funds</option>
               <option value="others">Other</option>
             </select>
           </label>
@@ -106,6 +112,7 @@ const Expense = () => {
             <textarea
               className="py-2 px-4 border-gray-700 border-2 rounded-md text-black"
               name="description"
+              autoComplete="new-password"
               value={description}
               onChange={handleInputs("description")}
               placeholder="Add A description"

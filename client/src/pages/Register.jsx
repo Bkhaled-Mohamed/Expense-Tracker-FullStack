@@ -1,7 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import expenseImge from "../assets/expenseImage.jpg";
+import { useState } from "react";
+import { useGlobalContext } from "../context/globalContext";
 
-const register = () => {
+import "react-toastify/dist/ReactToastify.css";
+
+const Register = () => {
+  const { registerUser } = useGlobalContext();
+  const navigate = useNavigate();
+
+  const [registerData, setRegisterData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputs = (propertyName) => (e) => {
+    setRegisterData({ ...registerData, [propertyName]: e.target.value });
+  };
+
+  const handlesumbit = async (e) => {
+    e.preventDefault();
+    setRegisterData(registerData);
+    try {
+      await registerUser(registerData);
+      navigate("/login");
+    } catch (error) {
+      console.log("failed");
+    }
+  };
+
   return (
     <div className=" bg-gray-100 h-screen w-screen absolute top-0 left-0 text-black  flex flex-row justify-center items-center ">
       <div className="w-2/4 h-[70%] bg-slate-100 flex flex-row   overflow-hidden rounded-md shadow-sm shadow-slate-500">
@@ -21,7 +49,10 @@ const register = () => {
             <h1 className="text-4xl font-semibold">Register</h1>
             <p className=" text-slate-800">Please register to continue.</p>
           </div>
-          <form className="flex flex-col w-full px-6 gap-y-2 ">
+          <form
+            className="flex flex-col w-full px-6 gap-y-2 "
+            onSubmit={handlesumbit}
+          >
             <label
               htmlFor="name"
               className="flex flex-col text-lg text-slate-800 "
@@ -32,6 +63,8 @@ const register = () => {
                 autoComplete="new-password"
                 type="text"
                 name="name"
+                onChange={handleInputs("name")}
+                value={registerData.name}
                 placeholder="exemple: Mike bakawski"
                 className=" w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
@@ -46,6 +79,8 @@ const register = () => {
                 autoComplete="new-password"
                 type="email"
                 name="email"
+                onChange={handleInputs("email")}
+                value={registerData.email}
                 placeholder="exemple: mike@gmail.com"
                 className=" w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
@@ -59,6 +94,8 @@ const register = () => {
               <input
                 type="password"
                 name="password"
+                onChange={handleInputs("password")}
+                value={registerData.password}
                 placeholder="exemple: mike123"
                 className="w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
@@ -86,4 +123,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;

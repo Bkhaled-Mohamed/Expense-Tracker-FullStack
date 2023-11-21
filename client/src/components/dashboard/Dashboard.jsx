@@ -17,6 +17,17 @@ const Dashboard = () => {
     useGlobalContext();
   const navigate = useNavigate();
 
+  const { logout } = useGlobalContext();
+
+  const handleLogout = async () => {
+    // Call the logout function
+    await logout();
+    navigate("/home");
+  };
+
+  const userName = localStorage.getItem("user");
+  const userData = JSON.parse(userName);
+
   useEffect(() => {
     getExpenses();
     getIncomes();
@@ -31,7 +42,7 @@ const Dashboard = () => {
             <FaUserCircle />
           </div>
           <div className=" ml-4 ">
-            <h1 className=" text-lg text-black">Jhon Smith</h1>
+            <h1 className=" text-lg text-black">{userData.name}</h1>
           </div>
         </div>
       </div>
@@ -109,7 +120,10 @@ const Dashboard = () => {
                 </div>
                 <h1>Transactions</h1>
               </div>
-              <div className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950 cursor-pointer hover:text-white py-2">
+              <div
+                onClick={handleLogout}
+                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950 cursor-pointer hover:text-white py-2"
+              >
                 <div className="text-[65px]">
                   <MdLogout />
                 </div>

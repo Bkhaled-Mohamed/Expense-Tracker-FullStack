@@ -52,6 +52,7 @@ const Income = () => {
               name="title"
               value={title}
               onChange={handleInputs("title")}
+              autoComplete="new-password"
             />
           </label>
           <label className="p-2 flex flex-col my-2">
@@ -62,6 +63,7 @@ const Income = () => {
               type="number"
               name="amount"
               value={amount}
+              autoComplete="new-password"
               onChange={handleInputs("amount")}
             />
           </label>
@@ -72,6 +74,7 @@ const Income = () => {
               className="border-2 border-black rounded-md p-2 ml-2 py-2 px-4  cursor-pointer"
               id="date"
               placeholderText="pick a date"
+              autoComplete="new-password"
               selected={incomesInputs.date}
               dateFormat="dd/MM/yyyy"
               onChange={(newDate) => {
@@ -95,7 +98,7 @@ const Income = () => {
               <option value="work">Work</option>
               <option value="freelancing">Freelancing</option>
               <option value="family">Family</option>
-              <option value="dono">Dono</option>
+              <option value="dono">Donoation</option>
               <option value="others">Other</option>
             </select>
           </label>
@@ -105,6 +108,7 @@ const Income = () => {
               className="py-2 px-4 border-gray-700 border-2 rounded-md text-black"
               name="description"
               value={description}
+              autoComplete="new-password"
               onChange={handleInputs("description")}
               placeholder="Add A description"
               id="description"

@@ -2,8 +2,9 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { GiReceiveMoney, GiPayMoney, GiTakeMyMoney } from "react-icons/gi";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { TbLogout } from "react-icons/tb";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useGlobalContext } from "../../context/globalContext";
 
 const Navbar = () => {
   const location = useLocation();
@@ -17,6 +18,16 @@ const Navbar = () => {
       setShow(true);
     }
   }, [location.pathname]);
+
+  const navigate = useNavigate();
+
+  const { logout } = useGlobalContext();
+
+  const handleLogout = async () => {
+    // Call the logout function
+    await logout();
+    navigate("/home");
+  };
 
   return (
     <>
@@ -75,15 +86,15 @@ const Navbar = () => {
               <FaMoneyBillTransfer />
               <span className="ml-4">Transactions</span>
             </Link>
-            <Link
-              to="/logout"
-              className={`flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded ${
+            <h1
+              onClick={handleLogout}
+              className={`flex items-center mb-2 text-black hover:bg-gray-900 hover:text-white p-2 px-6 rounded  cursor-pointer${
                 location.pathname == "/logout" ? "bg-gray-900 text-white" : ""
               }`}
             >
               <TbLogout />
               <span className="ml-4">Sign out</span>
-            </Link>
+            </h1>
           </div>
 
           <div className=" absolute bottom-5 w-full">
