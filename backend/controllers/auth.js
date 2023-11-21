@@ -64,12 +64,14 @@ exports.loginUser = async (req, res) => {
     }
 
     if (userFound) {
-      res.status(201).json({
-        message: "User loged in",
+      const token = generateJwtToken(userFound._id);
+
+      return res.status(201).json({
+        message: "User logged in",
         name: userFound.name,
         _id: userFound.id,
         email: userFound.email,
-        token: generateJwtToken(userFound._id),
+        token: token,
       });
     }
   } catch (error) {
@@ -79,5 +81,5 @@ exports.loginUser = async (req, res) => {
 };
 
 const generateJwtToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "14d" });
 };

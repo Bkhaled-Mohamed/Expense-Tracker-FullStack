@@ -1,44 +1,46 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-
-const ExpenseSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true,"please add a name"],
-        maxLength: 20
+const ExpenseSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      unqiue: true,
+      ref: "User",
     },
     title: {
-        type: String,
-        required: true,
-        trim: true,
-        maxLength: 50
+      type: String,
+      required: true,
+      trim: true,
+      maxLength: 50,
     },
     amount: {
-        type: Number,
-        required: true,
-        maxLength: 20,
-        trim: true
+      type: Number,
+      required: true,
+      maxLength: 20,
+      trim: true,
     },
     type: {
-        type: String,
-        default:"expense"
+      type: String,
+      default: "expense",
     },
     date: {
-        type: Date,
-        required: true,
-        trim: true
+      type: Date,
+      required: true,
+      trim: true,
     },
     category: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true,
     },
     description: {
-        type: String,
-        required: true,
-        maxLength: 80,
-        trim: true
+      type: String,
+      required: true,
+      maxLength: 80,
+      trim: true,
     },
-}, {timestamps: true})
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Expense', ExpenseSchema)
+module.exports = mongoose.model("Expense", ExpenseSchema);
