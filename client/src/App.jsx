@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PrivateRoute from "./context/PrivateRoutes.jsx";
+import DirectRoute from "./context/DirectRoute.jsx";
 import Dashboard from "./components/dashboard/Dashboard.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
 import Transactions from "./components/transactions/Transactions.jsx";
@@ -21,9 +22,10 @@ function App() {
           <div className="w-full h-full bg-white bg-opacity-60 pt-3 pr-5 pb-2">
             <Routes>
               <Route path="/home" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-
+              <Route element={<DirectRoute />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Route>
               {/* Use PrivateRoute for protected routes */}
               <Route element={<PrivateRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />

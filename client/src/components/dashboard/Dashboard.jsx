@@ -1,5 +1,5 @@
 import { FaWallet, FaHistory } from "react-icons/fa";
-import { IoWalletSharp } from "react-icons/io5";
+
 import { SiQuicktime } from "react-icons/si";
 import { MdOutlineAddBox, MdLogout } from "react-icons/md";
 import { FiMinusSquare } from "react-icons/fi";
@@ -11,6 +11,7 @@ import Chart from "../chart/Chart";
 import { Link, useNavigate } from "react-router-dom";
 import History from "../history/History";
 import { FaUserCircle } from "react-icons/fa";
+import moneyImg from "../../assets/money.png";
 
 const Dashboard = () => {
   const { totalIncome, totalExpenses, totalBalance, getExpenses, getIncomes } =
@@ -33,16 +34,16 @@ const Dashboard = () => {
     getIncomes();
   }, []);
   return (
-    <div className=" w-full bg-slate-100 h-full rounded-t-md pl-5 pr-5 ">
+    <div className=" w-full bg-slate-600 h-full rounded-t-md pl-5 pr-5 ">
       {/* ------- profil & title start -------- */}
       <div className="w-full h-[7%]  rounded-md flex flex-row justify-between px-4 my-0 items-center">
         <h1 className="text-black text-2xl font-semibold">My Dashboard</h1>
         <div className="flex flex-row items-center">
-          <div className="text-3xl rounded-full  border-white">
+          <div className="text-3xl rounded-full text-white  border-white">
             <FaUserCircle />
           </div>
           <div className=" ml-4 ">
-            <h1 className=" text-lg text-black">{userData.name}</h1>
+            <h1 className=" text-lg text-white">{userData.name}</h1>
           </div>
         </div>
       </div>
@@ -50,7 +51,7 @@ const Dashboard = () => {
 
       {/* ------- walet & quick actions start -------- */}
       <div className="flex flex-row w-full h-[40%] overflow-hidden  justify-between text-black">
-        <div className=" w-[58%] bg-white bg-opacity-60 rounded-lg py-4 px-2 flex flex-row">
+        <div className=" w-[58%] bg-white bg-opacity-95 rounded-lg py-4 px-2 flex flex-row">
           <div className="w-full relative">
             <div>
               <h1 className=" text-xl flex flex-row items-center ">
@@ -80,19 +81,19 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="text-[280px] absolute right-0 top-0 opacity-90">
-              <IoWalletSharp />
+            <div className=" absolute right-3 top-[-20px] ">
+              <img src={moneyImg} alt="money image" className=" w-[300px]" />
             </div>
           </div>
         </div>
-        <div className=" w-[40%] bg-white bg-opacity-60 rounded-lg py-4 px-2">
+        <div className=" w-[40%] bg-white bg-opacity-95 rounded-lg py-4 px-2">
           <h1 className=" text-xl flex flex-row items-center ">
             <SiQuicktime /> <span className="ml-2"> Quick Actions</span>
           </h1>
           <div className="h-full mt-2 text-center">
             <div className="w-full flex flex-row justify-around items-center">
               <div
-                className="flex flex-col justify-center items-center w-2/4 hover:bg-slate-950 cursor-pointer hover:text-white py-2"
+                className="flex flex-col justify-center items-center w-2/4 hover:bg-slate-600  cursor-pointer hover:text-white py-2"
                 onClick={() => navigate("/income")}
               >
                 <div className="text-[68px] ">
@@ -101,7 +102,7 @@ const Dashboard = () => {
                 <h1>Add Income</h1>
               </div>
               <div
-                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950  cursor-pointer hover:text-white  py-2"
+                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-600  cursor-pointer hover:text-white  py-2"
                 onClick={() => navigate("/expense")}
               >
                 <div className="text-[65px] ">
@@ -112,7 +113,7 @@ const Dashboard = () => {
             </div>
             <div className="w-full  flex flex-row justify-around mt-2 items-center">
               <div
-                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950 cursor-pointer hover:text-white py-2"
+                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-600 cursor-pointer hover:text-white py-2"
                 onClick={() => navigate("/transactions")}
               >
                 <div className="text-[65px]  ">
@@ -122,7 +123,7 @@ const Dashboard = () => {
               </div>
               <div
                 onClick={handleLogout}
-                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-950 cursor-pointer hover:text-white py-2"
+                className="flex flex-col justify-center items-center w-2/4  hover:bg-slate-600 cursor-pointer hover:text-white py-2"
               >
                 <div className="text-[65px]">
                   <MdLogout />
@@ -137,14 +138,16 @@ const Dashboard = () => {
 
       {/* ------- statistics & Transactions  start -------- */}
       <div className="flex flex-row w-full h-[48%] mt-5 justify-between">
-        <div className=" w-[58%] bg-white bg-opacity-60 rounded-lg py-4 px-2 text-black">
+        <div className=" w-[58%] bg-white bg-opacity-95 rounded-lg py-4  px-2 text-black">
           <h1 className=" text-xl flex flex-row items-center ">
             <ImStatsDots /> <span className="ml-2">statistics</span>
           </h1>
 
-          <Chart />
+          <div className="h-[90%] flex justify-center overflow-hidden">
+            <Chart />
+          </div>
         </div>
-        <div className=" w-[40%] bg-white bg-opacity-60 rounded-lg py-4 px-2 text-black relative">
+        <div className=" w-[40%] bg-white bg-opacity-95 rounded-lg py-4 px-2 text-black relative">
           <h1 className=" text-xl flex flex-row items-center ">
             <FaHistory /> <span className="ml-2">Recent History</span>
           </h1>

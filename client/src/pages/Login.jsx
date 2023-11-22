@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" bg-gray-100 h-screen w-screen absolute top-0 left-0 text-black  flex flex-row justify-center items-center ">
+    <div className=" bg-slate-900 h-screen w-screen absolute top-0 left-0 text-black  flex flex-row justify-center items-center ">
       <div className="w-2/4 h-[70%] bg-slate-100 flex flex-row   overflow-hidden rounded-md shadow-sm shadow-slate-500">
         <div className="h-full w-[550px] relative">
           <img
@@ -61,7 +61,7 @@ const Login = () => {
                 name="email"
                 onChange={handleInputs("email")}
                 value={loginData.email}
-                placeholder="demo account: mike@gmail.com"
+                placeholder="demo account: mike@email.com"
                 className=" w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
             </label>

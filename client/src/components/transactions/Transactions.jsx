@@ -13,8 +13,8 @@ const Transactions = () => {
 
   return (
     <div>
-      <div className="mt-2 px-2 h-[80vh] bg-slate-100 ">
-        <h1 className="text-2xl">Transactions</h1>
+      <div className="mt-2 px-2 pt-2 h-[80vh] bg-slate-100 ">
+        <h1 className="text-2xl pl-6 font-semibold">Transactions</h1>
         <div className="overflow-scroll flex flex-wrap gap-2 w-full mt-6  h-full">
           {history.map((item) => {
             const { _id, title, amount, type, date, category, description } =

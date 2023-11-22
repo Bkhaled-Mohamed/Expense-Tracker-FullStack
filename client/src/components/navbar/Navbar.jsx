@@ -5,11 +5,13 @@ import { TbLogout } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context/globalContext";
+import YourPlan from "../subscription/YourPlan";
 
 const Navbar = () => {
   const location = useLocation();
   // console.log(show);
   const [show, setShow] = useState(false);
+  const [showPlan, setShowPlan] = useState(false);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -36,7 +38,7 @@ const Navbar = () => {
           <div className="flex flex-row justify-center rounded-b-md pt-5 pb-5 pl-3  ">
             <Link
               className="text-xl text-black flex flex-row relative "
-              to={"/"}
+              to={"/dashboard"}
             >
               <span className=" absolute left-[-30px] top-1 scale-150 ">
                 {<GiTakeMyMoney />}
@@ -194,12 +196,20 @@ const Navbar = () => {
                   Unlock all features and <br />
                   get more facilities
                 </p>
-                <button className="rounded-md py-2 px-5 text-sm font-medium bg-green-400 hover:bg-green-600">
+                <button
+                  onClick={() => setShowPlan(!showPlan)}
+                  className="rounded-md py-2 px-5 text-sm font-medium bg-green-400 hover:bg-green-600"
+                >
                   Upgrade
                 </button>
               </div>
             </div>
           </div>
+          {showPlan ? (
+            <YourPlan showPlan={showPlan} setShowPlan={setShowPlan} />
+          ) : (
+            ""
+          )}
         </nav>
       ) : (
         ""

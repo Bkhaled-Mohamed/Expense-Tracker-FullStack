@@ -18,7 +18,7 @@ const Home = () => {
             className="text-xl text-white flex flex-row relative ml-4 "
             to={"/"}
           >
-            <span className=" absolute left-[-30px] text-[#a6624a] top-1 scale-150 ">
+            <span className=" absolute left-[-30px] text-[#ffffff] top-1 scale-150 ">
               {<GiTakeMyMoney />}
             </span>
             <span className="text-xl">MyExpense</span>
@@ -27,13 +27,13 @@ const Home = () => {
         <div className="flex flex-row justify-between items-center gap-4">
           <Link
             to={userName ? "/dashboard" : "/login"}
-            className=" cursor-pointer hover:text-[#a6624a]"
+            className=" cursor-pointer text-lg hover:text-[#ffffff] underline-offset-2  hover:underline"
           >
             Log In
           </Link>
           <Link
             to={"/register"}
-            className=" cursor-pointer border-2 border-[#a6624a] hover:bg-[#a6624a] py-2 px-4"
+            className=" cursor-pointer border-2 text-lg border-white hover:bg-white hover:text-gray-950  py-2 px-4"
           >
             Sign Up
           </Link>
@@ -41,9 +41,9 @@ const Home = () => {
       </nav>
       <div className=" flex flex-row w-full items-center justify-center mt-14 px-10">
         <div className="w-2/5 mx-auto ">
-          <h1 className="text-7xl">
-            Manage Your Expenses <span className="text-[#a6624a]">Easly</span>{" "}
-            Today.
+          <h1 className="text-7xl font-thin">
+            Manage Your Expenses{" "}
+            <span className="text-[#ffffff] font-bold">Easly</span> Today.
           </h1>
           <p className="text-gray-400 mt-4">
             all your expenses in one place. add, managa and follow the history
@@ -52,13 +52,13 @@ const Home = () => {
           <div className="mt-8 space-x-4">
             <Link
               to={"/register"}
-              className="cursor-pointer border-2 border-[#a6624a] py-2 px-4 hover:bg-[#a6624a]"
+              className="cursor-pointer border-2 text-lg  border-white hover:bg-white hover:text-gray-950 py-2 px-4 "
             >
               Let&apos;s Begin!
             </Link>
             <Link
               to={userName ? "/dashboard" : "/login"}
-              className=" underline-offset-2 underline hover:text-[#a6624a]"
+              className=" text-lg underline-offset-2  hover:underline"
             >
               or Log In
             </Link>
@@ -68,11 +68,11 @@ const Home = () => {
           <img
             src={homeImage}
             alt="home image"
-            className="w-[500px] rounded-3xl  mx-auto"
+            className="w-[800px] rounded-3xl  mx-auto"
           />
         </div>
       </div>
-      <div className="text-white bg-gray-200 mt-12 h-[80px] flex flex-row justify-between items-center px-14">
+      <div className="text-white bg-gray-200 mt-20 h-[80px]  bottom-5 flex flex-row justify-between items-center px-14">
         <img src={Adidas} alt="Adidas logo" className="w-[50px]   mx-auto" />
         <img src={Google} alt="Google logo" className="w-[80px]   mx-auto" />
         <img src={Meta} alt="Meta logo" className="w-[80px]   mx-auto" />

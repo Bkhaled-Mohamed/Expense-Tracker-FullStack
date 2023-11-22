@@ -13,7 +13,7 @@ function History() {
         return (
           <div
             key={_id}
-            className=" flex flex-row py-3 px-4   justify-between text-xl bg-slate-950 my-2 rounded-md border-2  "
+            className=" flex flex-row py-3 px-4  font-light  justify-between text-xl shadow-slate-900 my-2 rounded-md border-2 border-slate-400  "
           >
             <p
               style={{
