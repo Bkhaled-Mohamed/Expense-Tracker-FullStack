@@ -11,15 +11,18 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import { ToastContainer } from "react-toastify";
 import { GlobalProvider } from "./context/globalContext.jsx";
+import MobileNavbar from "./components/navbar/MobileNavbar.jsx";
 
 function App() {
   return (
-    <div className="h-screen bg-cover flex flex-row">
+    <div className="h-screen w-screen bg-cover mx-auto ">
       <BrowserRouter>
         <GlobalProvider>
           <ToastContainer />
-          <Navbar />
-          <div className="w-full h-full bg-white bg-opacity-60 pt-3 pr-5 pb-2">
+          <MobileNavbar />
+          <div className="w-screen h-screen flex justify-center  bg-slate-100 md:pt-3 md:pr-3 md:pb-3">
+            <Navbar />
+
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route element={<DirectRoute />}>

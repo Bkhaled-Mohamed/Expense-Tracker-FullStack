@@ -14,7 +14,11 @@ const Navbar = () => {
   const [showPlan, setShowPlan] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (
+      location.pathname === "/home" ||
+      location.pathname === "/login" ||
+      location.pathname === "/register"
+    ) {
       setShow(false);
     } else {
       setShow(true);
@@ -34,7 +38,7 @@ const Navbar = () => {
   return (
     <>
       {show ? (
-        <nav className=" bg-white bg-opacity-60 w-64 h-screen   relative">
+        <nav className="md:block hidden bg-slate-100  w-64 h-full  z-30 relative">
           <div className="flex flex-row justify-center rounded-b-md pt-5 pb-5 pl-3  ">
             <Link
               className="text-xl text-black flex flex-row relative "

@@ -32,8 +32,8 @@ const Income = () => {
   };
 
   return (
-    <div className="w-full bg-slate-100 h-full rounded-t-md pl-5 pr-5">
-      <div className="w-full h-[7%]  rounded-md flex flex-row justify-between px-4 my-2 items-center">
+    <div className="w-full h-fit bg-slate-100  rounded-t-md  m-0 p-0">
+      <div className="w-full h-[7%]  rounded-md flex md:flex-row flex-col justify-between px-4 my-2 items-center">
         <h1 className="text-black text-2xl font-semibold ">My Incomes</h1>
         <h2 className="w-[80%] text-center text-lg bg-slate-900 text-white py-2 px-4 rounded-md flex items-center justify-center">
           Total Income:{" "}
@@ -41,8 +41,11 @@ const Income = () => {
         </h2>
       </div>
 
-      <div className="flex flex-row">
-        <form onSubmit={handleSubmit} className=" flex flex-col w-2/4 p-2 mt-8">
+      <div className="w-full flex md:flex-row flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full flex flex-col md:w-2/4 p-2 mt-8"
+        >
           <label className="p-2 flex flex-col my-2 ">
             Enter Income title:
             <input
@@ -124,7 +127,7 @@ const Income = () => {
           </button>
         </form>
 
-        <div className="h-[80vh] overflow-scroll w-[50%] mt-8 p-4">
+        <div className="h-[80vh] overflow-scroll w-full md:w-[50%] mt-8 p-4">
           <div className=" w-full ">
             <h1 className=" font-semibold">Recent Incomes:</h1>
             {incomes.map((income) => {

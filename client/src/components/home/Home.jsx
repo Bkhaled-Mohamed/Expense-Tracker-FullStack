@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div className="  mx-auto text-center bg-gray-900 h-screen w-screen absolute top-0 left-0 text-white ">
-      <div className="max-w-[1520px] mx-auto border-2 border-white ">
+      <div className="max-w-[1520px] mx-auto  ">
         <nav className="flex flex-row justify-between items-center px-4 md:px-20 w-full h-10 mt-8">
           <div className="flex flex-row justify-center rounded-b-md pt-5 pb-5 pl-3  ">
             <Link

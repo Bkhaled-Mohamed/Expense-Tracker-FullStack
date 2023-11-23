@@ -61,7 +61,7 @@ const Login = () => {
                 name="email"
                 onChange={handleInputs("email")}
                 value={loginData.email}
-                placeholder="demo account: mike@email.com"
+                placeholder="exemple: jhon@email.com"
                 className=" w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
             </label>
@@ -76,7 +76,7 @@ const Login = () => {
                 name="password"
                 onChange={handleInputs("password")}
                 value={loginData.password}
-                placeholder="demo account: mike123"
+                placeholder="exemple: jhon123"
                 className="w-full py-2 px-4 bg-none rounded-md border-2 border-slate-800 text-black"
               />
             </label>
