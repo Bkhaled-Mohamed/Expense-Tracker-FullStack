@@ -27,20 +27,20 @@ const Login = () => {
   };
 
   return (
-    <div className=" bg-slate-900 h-screen w-screen absolute top-0 left-0 text-black  flex flex-row justify-center items-center ">
-      <div className="w-2/4 h-[70%] bg-slate-100 flex flex-row   overflow-hidden rounded-md shadow-sm shadow-slate-500">
-        <div className="h-full w-[550px] relative">
+    <div className=" bg-slate-900 h-screen w-screen absolute top-0 left-0 text-black  flex flex-row justify-center items-center  md:p-auto">
+      <div className="md:w-[700px] w-full h-full  md:h-[500px] bg-slate-100 flex md:flex-row flex-col items-center  overflow-hidden rounded-md shadow-sm shadow-slate-500">
+        <div className="md:h-full w-full md:w-2/5 h-[200px]  relative overflow-hidden">
           <img
             src={expenseImge}
             alt="expense image"
-            className=" object-fill w-full h-full text-left"
+            className=" object-cover w-full  scale-150 md:scale-[5] text-left"
           />
-          <h1 className=" absolute bottom-3 left-3 text-2xl text-white">
+          <h1 className=" absolute bottom-3 left-3 text-2xl  md:text-2xl text-white">
             Welcome <br />
             to MyExpenses App.
           </h1>
         </div>
-        <div className="w-full">
+        <div className="md:w-full w-[90%]">
           <div className="mb-16  px-6 mt-6">
             <h1 className="text-4xl font-semibold">Login</h1>
             <p className=" text-slate-800">Please Log in to continue.</p>
