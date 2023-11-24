@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "https://expense-tracker-api-46gx.onrender.com/";
+const BASE_URL = "https://expense-tracker-api-46gx.onrender.com/api/";
 
 const GlobalContext = React.createContext();
 
