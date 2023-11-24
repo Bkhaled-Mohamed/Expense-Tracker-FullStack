@@ -10,7 +10,14 @@ const PORT = process.env.PORT;
 
 //middlewear
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+	origin:["https://expense-tracker-full-stack.vercel.app"],
+	methode:["¨POST","GET","DELETE"],
+	credentials:true
+
+}
+));
 
 //routes
 readdirSync("./routes").map((route) =>
